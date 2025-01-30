@@ -1,0 +1,131 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: url('https://wallpapers.com/images/hd/music-aesthetic-1920-x-1080-background-6auj6fpy1z24nfp8.jpg');
+}
+
+/* Gallery container */
+.gallery {
+    position: relative;
+    width: 50vw;
+    height: 50vw;
+    perspective: 1000px; /* Gives depth */
+}
+
+/* Image container for rotation */
+.image-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotate 10s infinite linear;
+}
+
+/* Image styling */
+.image-container img {
+    width: 230px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(150px);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Rotate animation */
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.preloader-image {
+    width: 150px;
+    height: auto;
+    animation: fadeIn 1s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Hide Preloader after Load */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .gallery {
+        width: 70vw;
+        height: 70vw;
+    }
+
+    .image-container img {
+        width: 160px;
+        height: 170px;
+        transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(120px);
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        width: 90vw;
+        height: 80vw;
+    }
+
+    .image-container img {
+        width: 100px;
+        height: 100px;
+        transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(90px);
+    }
+    
+}
+.image-container img {
+    /* existing styles */
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.image-container img:hover {
+    transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(180px) scale(1.05);
+    filter: brightness(1.1);
+}
+
+.image-container img.active {
+    box-shadow: 0 0 20px rgba(255,107,107,0.8);
+    filter: hue-rotate(15deg);
+}

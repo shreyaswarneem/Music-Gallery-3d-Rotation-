@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rotating Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div id="preloader">
+   <img src="musicloader.gif" alt="Loading." class="preloader-image">
+   </div>
+   
+<div class="gallery">
+        <div class="image-container">
+            <img src="image/image1.png" alt="Image1" style="--i: 0;" onclick="playAudio('Audio1')">
+            <audio id="Audio1" src="audio/Audio1.mp3"></audio>
+            <img src="image/image2.png" alt="Image2" style="--i: 1;" onclick="playAudio('Audio2')">
+            <audio id="Audio2" src="audio/Audio2.mp3"></audio>
+            <img src="image/image3.png" alt="Image3" style="--i: 2;" onclick="playAudio('Audio3')">
+            <audio id="Audio3" src="audio/Audio3.mp3"></audio>
+            <img src="image/image4.png" alt="Image4" style="--i: 3;" onclick="playAudio('Audio4')">
+            <audio id="Audio4" src="audio/Audio4.mp3"></audio>
+            <img src="image/image5.png" alt="Image5" style="--i: 4;" onclick="playAudio('Audio5')">
+            <audio id="Audio5" src="audio/Audio5.mp3"></audio>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
