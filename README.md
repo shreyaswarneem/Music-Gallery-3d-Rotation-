@@ -14,3 +14,4 @@ HTML – Structure of the gallery
 CSS (Animations, 3D Transforms) – For the rotating effect and styling
 JavaScript (DOM Manipulation & Audio Control) – Handles music playback and animations
 Preloader Animation – Shows a loading effect before content loads
+
